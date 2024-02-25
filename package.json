@@ -1,0 +1,28 @@
+{
+  "name": "systransport-api",
+  "version": "1.0.0",
+  "description": "Implementation of an API (Application Programming Interface) based on REST architecture principles for the SysTransport project, with authentication in Node JS, Express, Mongo, JWT and role management.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwinG241993/systransport-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongo",
+    "token-based-authentication-",
+    "roles",
+    "jwt",
+    "mongoose"
+  ],
+  "author": "Edwin Guanaran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EdwinG241993/systransport-api/issues"
+  },
+  "homepage": "https://github.com/EdwinG241993/systransport-api#readme"
+}
