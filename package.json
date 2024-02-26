@@ -4,7 +4,7 @@
   "description": "Implementation of an API (Application Programming Interface) based on REST architecture principles for the SysTransport project, with authentication in Node JS, Express, Mongo, JWT and role management.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,11 @@
   "bugs": {
     "url": "https://github.com/EdwinG241993/systransport-api/issues"
   },
-  "homepage": "https://github.com/EdwinG241993/systransport-api#readme"
+  "homepage": "https://github.com/EdwinG241993/systransport-api#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.2.0",
+    "nodemon": "^3.1.0"
+  }
 }
