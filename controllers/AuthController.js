@@ -14,7 +14,7 @@ const timeout = async (promise, ms) => {
 const { registerValidation, loginValidation } = require("../services/validation-data");
 
 // Route for user registration
-router.post("/register", async (req, res) => {
+exports.register = async (req, res) => {
     // Validate the user input
     const { error } = registerValidation(req.body);
 
@@ -57,10 +57,10 @@ router.post("/register", async (req, res) => {
         }
         res.status(400).json({ error });
     }
-});
+};
 
 // Login route
-router.post("/login", async (req, res) => {
+exports.login = async (req, res) => {
     // Validate user input for login
     const { error } = loginValidation(req.body);
 
@@ -95,10 +95,10 @@ router.post("/login", async (req, res) => {
             token: token
         }
     });
-});
+};
 
 // Logout route
-router.post("/logout", async (req, res) => {
+exports.logout = async (req, res) => {
     const token = req.header("auth-token");
 
     // Check if the token is in the invalidatedTokens list
@@ -129,6 +129,4 @@ router.post("/logout", async (req, res) => {
             message: "Ha cerrado sesión correctamente"
         }
     });
-});
-
-module.exports = router;
+};

@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const InvalidatedToken = require('../models/InvalidatedToken');
 
 // Middleware to validate authentication token
 const verifyToken = (req, res, next) => {
@@ -25,5 +26,19 @@ const verifyToken = (req, res, next) => {
     }
 };
 
-// Export the middleware for use in other parts of the application
-module.exports = verifyToken;
+// Middleware to check if a token is invalidated
+async function checkInvalidatedToken(req, res, next) {
+    const token = req.header("auth-token");
+
+    // Check if the token is in the invalidatedTokens list
+    const invalidatedToken = await InvalidatedToken.findOne({ token });
+
+    if (invalidatedToken) {
+        return res.status(401).json({ error: "Token inválido. Ya ha cerrado sesión." });
+    }
+
+    // If the token is not invalidated, continue to the next middleware
+    next();
+}
+
+module.exports = { verifyToken, checkInvalidatedToken };
