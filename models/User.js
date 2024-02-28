@@ -30,7 +30,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         minlength: 3,
         maxlength: 1024
-    }
+    },
+    clients: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Client' }],
+    employees: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Employee' }],
+    conductors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Conductor' }]
 }, { timestamps: true });
 
 // Export the mongoose model for the User
